@@ -1,0 +1,68 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@theme inline {
+  --font-sans: var(--font-geist), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, monospace;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-destructive: var(--destructive);
+  --radius-sm: calc(var(--radius) * .6);
+  --radius-md: calc(var(--radius) * .8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+}
+
+:root {
+  --background: #080b0d;
+  --foreground: #edf4f2;
+  --card: #101619;
+  --card-foreground: #edf4f2;
+  --primary: #67e8d0;
+  --primary-foreground: #06211c;
+  --secondary: #172024;
+  --secondary-foreground: #edf4f2;
+  --muted: #11191c;
+  --muted-foreground: #89999c;
+  --border: #26373a;
+  --input: #304245;
+  --ring: #67e8d0;
+  --destructive: #fb7185;
+  --radius: .75rem;
+  color-scheme: dark;
+}
+
+* { border-color: var(--border); }
+html { background: var(--background); }
+body { min-width: 320px; background: var(--background); color: var(--foreground); font-family: var(--font-geist), sans-serif; }
+::selection { background: color-mix(in srgb, var(--primary) 28%, transparent); color: var(--foreground); }
+textarea, button, a { -webkit-tap-highlight-color: transparent; }
+mark { border-radius: 3px; background: color-mix(in srgb, var(--primary) 25%, transparent); color: var(--primary); padding: 0 3px; }
+:focus-visible { outline: 2px solid var(--ring); outline-offset: 3px; }
+
+.tool-grid {
+  background-image: linear-gradient(color-mix(in srgb, var(--border) 42%, transparent) 1px, transparent 1px), linear-gradient(90deg, color-mix(in srgb, var(--border) 42%, transparent) 1px, transparent 1px);
+  background-size: 42px 42px;
+  mask-image: linear-gradient(to bottom, black, transparent 86%);
+}
+
+.surface-glow { box-shadow: 0 24px 80px color-mix(in srgb, #000 42%, transparent), 0 0 0 1px color-mix(in srgb, var(--border) 40%, transparent) inset; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .reveal { animation: reveal .55s ease-out both; }
+  .reveal-delay-1 { animation-delay: .08s; }
+  .reveal-delay-2 { animation-delay: .16s; }
+  .reveal-delay-3 { animation-delay: .24s; }
+  @keyframes reveal { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+}
